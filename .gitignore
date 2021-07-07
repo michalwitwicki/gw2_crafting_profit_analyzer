@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# database and backup
+backup/
+database/
+
+# vscode files
+.vscode/
+
+# jupyter notebook checkpoints
+.ipynb_checkpoints
