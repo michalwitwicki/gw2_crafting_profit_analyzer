@@ -70,14 +70,14 @@ def get_lowest_price(item_id):
         # Item cant be obtained so return -1
         return -1
 
-    if(CRAFTING_PRICE in item_data[0] and BUY_PRICE in item_data[0] and item_data[0][BUY_PRICE] != 0):
-        if(item_data[0][CRAFTING_PRICE] < item_data[0][BUY_PRICE]):
+    if(CRAFTING_PRICE in item_data[0] and GET_FROM_TP_PRICE in item_data[0] and item_data[0][GET_FROM_TP_PRICE] != 0):
+        if(item_data[0][CRAFTING_PRICE] < item_data[0][GET_FROM_TP_PRICE]):
             return item_data[0][CRAFTING_PRICE]
         else:
-            return item_data[0][BUY_PRICE]
+            return item_data[0][GET_FROM_TP_PRICE]
 
-    elif(BUY_PRICE in item_data[0] and item_data[0][BUY_PRICE] != 0):
-        return item_data[0][BUY_PRICE]
+    elif(GET_FROM_TP_PRICE in item_data[0] and item_data[0][GET_FROM_TP_PRICE] != 0):
+        return item_data[0][GET_FROM_TP_PRICE]
 
     elif(CRAFTING_PRICE in item_data[0]):
         return item_data[0][CRAFTING_PRICE]
@@ -172,7 +172,7 @@ def calculate_lowest_price(item_id, top_level_recipe):
         minimal_crafting_price = 0
 
         # Check if item is also not tradable 
-        if(buy_price == 0):
+        if(item_is_tradable == False):
             one_row[UNOBTAINABLE] = True
     else:
         # Sometimes different recipes can produce same item, here I handle this
@@ -211,7 +211,7 @@ def calculate_lowest_price(item_id, top_level_recipe):
             one_row[DIFFICULT] = True
 
             # If crafting price is zero it means that all ingredients are not obtainable (Fulgurite for example)
-            if(buy_price == 0 and minimal_crafting_price == 0):
+            if(item_is_tradable == False and minimal_crafting_price == 0):
                 one_row[UNOBTAINABLE] = True
 
     # Calculate crafting profit and crafting ROI
@@ -270,7 +270,7 @@ if __name__ == "__main__":
     for i, item in enumerate(recipes_df.itertuples()):
         calculate_lowest_price(item.output_item_id, top_level_recipe = True)
         print(i, end = '\r')
-        if(i == 500):
+        if(i == 1000):
             break
     print()
 
