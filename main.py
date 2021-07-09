@@ -1,6 +1,6 @@
 import pandas as pd 
 import json
-import sys # sys.exit()
+import sys # sys.exit() and command line arguments
 import copy # deepcopy()
 import database_getter as dg
 import time
@@ -44,7 +44,8 @@ DISCIPLINES_STR =               'disciplines_str'
 DIFFICULT =                     'difficult'
 UNOBTAINABLE =                  'unobtainable'
 
-GET_FROM_TP_PRICE = BUY_PRICE
+GET_FROM_TP_PRICE = ""
+OUTPUT_FILE_NAME = ""
 
 # This function compares buy vs craft cost
 # from database and returns lowest
@@ -123,6 +124,7 @@ def calculate_lowest_price(item_id, top_level_recipe):
 
     buy_price = 0
     sell_price = 0
+    get_from_tp_price = 0
 
     item_is_tradable = False
 
@@ -130,34 +132,40 @@ def calculate_lowest_price(item_id, top_level_recipe):
 
     # Check if item is tradable
     if(tp_data_df.isin({"id": [item_id]}).any().any()):
-        item_is_tradable = True
 
-        # If it is - add trading data to crafting_profit
-        one_row[BUY_PRICE] = int(tp_data_df.loc[tp_data_df['id'] == item_id, 'buy_price'].iat[0])
-        buy_price = one_row[BUY_PRICE]
+        try:
+            # If it is - add trading data to crafting_profit
+            one_row[BUY_PRICE] = int(tp_data_df.loc[tp_data_df['id'] == item_id, 'buy_price'].iat[0])
+            buy_price = one_row[BUY_PRICE]
 
-        one_row[SELL_PRICE] = int(tp_data_df.loc[tp_data_df['id'] == item_id, 'sell_price'].iat[0])
-        sell_price = one_row[SELL_PRICE]
-        
-        one_row[BUY_LISTED_7D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '7d_buy_listed'].iat[0])
-        one_row[BUY_SOLD_7D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '7d_buy_sold'].iat[0])
-        one_row[SELL_LISTED_7D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '7d_sell_listed'].iat[0])
-        one_row[SELL_SOLD_7D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '7d_sell_sold'].iat[0])
+            one_row[SELL_PRICE] = int(tp_data_df.loc[tp_data_df['id'] == item_id, 'sell_price'].iat[0])
+            sell_price = one_row[SELL_PRICE]
+            
+            # Save selected item price
+            get_from_tp_price = one_row[GET_FROM_TP_PRICE]
 
-        one_row[BUY_LISTED_1D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '1d_buy_listed'].iat[0])
-        one_row[BUY_SOLD_1D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '1d_buy_sold'].iat[0])
-        one_row[SELL_LISTED_1D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '1d_sell_listed'].iat[0])
-        one_row[SELL_SOLD_1D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '1d_sell_sold'].iat[0])
-        one_row[SELL_SOLD_1D_5_PERCENT] = int(one_row[SELL_SOLD_1D] * 0.05)
-        one_row[BUY_SOLD_1D_5_PERCENT] = int(one_row[BUY_SOLD_1D] * 0.05)
+            one_row[BUY_LISTED_7D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '7d_buy_listed'].iat[0])
+            one_row[BUY_SOLD_7D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '7d_buy_sold'].iat[0])
+            one_row[SELL_LISTED_7D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '7d_sell_listed'].iat[0])
+            one_row[SELL_SOLD_7D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '7d_sell_sold'].iat[0])
 
-        one_row[SELL_SOLD_DIFF_7D] = int(one_row[SELL_SOLD_7D] - one_row[SELL_LISTED_7D])
-        one_row[SELL_SOLD_DIFF_1D] = int(one_row[SELL_SOLD_1D] - one_row[SELL_LISTED_1D])
+            one_row[BUY_LISTED_1D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '1d_buy_listed'].iat[0])
+            one_row[BUY_SOLD_1D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '1d_buy_sold'].iat[0])
+            one_row[SELL_LISTED_1D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '1d_sell_listed'].iat[0])
+            one_row[SELL_SOLD_1D] = int(tp_data_df.loc[tp_data_df['id'] == item_id, '1d_sell_sold'].iat[0])
+            one_row[SELL_SOLD_1D_5_PERCENT] = int(one_row[SELL_SOLD_1D] * 0.05)
+            one_row[BUY_SOLD_1D_5_PERCENT] = int(one_row[BUY_SOLD_1D] * 0.05)
 
-        one_row[FLIP_PROFIT] = int(tp_data_df.loc[tp_data_df['id'] == item_id, 'profit'].iat[0])
+            one_row[SELL_SOLD_DIFF_7D] = int(one_row[SELL_SOLD_7D] - one_row[SELL_LISTED_7D])
+            one_row[SELL_SOLD_DIFF_1D] = int(one_row[SELL_SOLD_1D] - one_row[SELL_LISTED_1D])
 
-        # Caution!!! This value is rounded
-        one_row[FLIP_ROI] = round(tp_data_df.loc[tp_data_df['id'] == item_id, 'roi'].iat[0])
+            one_row[FLIP_PROFIT] = int(tp_data_df.loc[tp_data_df['id'] == item_id, 'profit'].iat[0])
+
+            # Caution!!! This value is rounded
+            one_row[FLIP_ROI] = round(tp_data_df.loc[tp_data_df['id'] == item_id, 'roi'].iat[0])
+            item_is_tradable = True
+        except:
+            print("nono")
 
     # If not tradable and also this is top level recipe
     # there is no point in continuing that tree
@@ -232,19 +240,19 @@ def calculate_lowest_price(item_id, top_level_recipe):
     one_row.clear()
     
     # Compare prices and return proper value
-    if(buy_price != 0 and minimal_crafting_price != 0):
-        if(buy_price < minimal_crafting_price):
-            return buy_price
+    if(get_from_tp_price != 0 and minimal_crafting_price != 0):
+        if(get_from_tp_price < minimal_crafting_price):
+            return get_from_tp_price
         else:
             return minimal_crafting_price
 
-    elif(buy_price != 0 or minimal_crafting_price != 0):
-        if(buy_price != 0):
-            return buy_price
+    elif(get_from_tp_price != 0 or minimal_crafting_price != 0):
+        if(get_from_tp_price != 0):
+            return get_from_tp_price
         else:
             return minimal_crafting_price
 
-    elif(buy_price == 0 and minimal_crafting_price == 0):
+    elif(get_from_tp_price == 0 and minimal_crafting_price == 0):
         return 0
 
     else:
@@ -253,6 +261,14 @@ def calculate_lowest_price(item_id, top_level_recipe):
     return 0
 
 if __name__ == "__main__":
+
+    # Check if there is one cmd line argument and if it matches excpected one
+    if(len(sys.argv) == 2 and (sys.argv[1]== "-ins" or sys.argv[1] == "-instant")):
+        GET_FROM_TP_PRICE = SELL_PRICE #instant option
+        OUTPUT_FILE_NAME = dg.file_name_instant_crafting_profit
+    else:
+        GET_FROM_TP_PRICE = BUY_PRICE #patient option
+        OUTPUT_FILE_NAME = dg.file_name_crafting_profit
 
     print("Starting time: " + time.strftime("%H:%M:%S", time.localtime()))
 
@@ -263,22 +279,23 @@ if __name__ == "__main__":
     recipes_df = pd.read_json(dg.file_name_basic_recipes)
     all_items_df = pd.read_json(dg.file_name_all_items_data)
 
+    # calculate_lowest_price(80140, top_level_recipe = True)
+
     # sys.exit("DEBUG EXIT")
 
-    print("CALCULATING ALL RECIPES")
+    print("CALCULATING ALL RECIPES WITH: " + GET_FROM_TP_PRICE)
     start = time.time()
     for i, item in enumerate(recipes_df.itertuples()):
         calculate_lowest_price(item.output_item_id, top_level_recipe = True)
         print(i, end = '\r')
-        if(i == 1000):
-            break
-    print()
+        # if(i == 50):
+        #     break
 
     end = time.time()
     print("Time elapsed: " + str(round(end - start, 2)))
 
     # Save crafting_profit to file
-    with open(dg.file_name_crafting_profit, 'w') as f:
+    with open(OUTPUT_FILE_NAME, 'w') as f:
         json.dump(crafting_profit, f, indent=4)
 
     # Convert crafting_profit in JSON to CSV

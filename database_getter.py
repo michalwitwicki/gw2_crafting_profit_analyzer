@@ -18,6 +18,7 @@ file_name_mystic_recipes = database_directory_name + 'mystic_recipes.json'
 file_name_tp_data = database_directory_name + 'tp_data.json'
 file_name_all_items_data = database_directory_name + 'all_items_data.json'
 file_name_crafting_profit = database_directory_name + 'crafting_profit.json'
+file_name_instant_crafting_profit = database_directory_name + 'instant_crafting_profit.json'
 file_name_crafting_profit_csv = database_directory_name + 'crafting_profit.csv'
 
 def get_json_from_url_to_file(url, file_name):
