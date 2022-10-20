@@ -109,8 +109,8 @@ def get_databases(get_basic_recipes = False, get_mystic_recipes = False, get_tp_
 
 
 if __name__ == "__main__":
-    get_databases(get_basic_recipes = True, get_mystic_recipes = True, get_tp_data = True, get_all_items_data = True)
-    # get_databases(get_tp_data = True)
+    # get_databases(get_basic_recipes = True, get_mystic_recipes = True, get_tp_data = True, get_all_items_data = True)
+    get_databases(get_tp_data = True)
 
 '''
 ## Usefull links ##
