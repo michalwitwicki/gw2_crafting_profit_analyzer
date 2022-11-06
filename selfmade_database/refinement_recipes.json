@@ -1,0 +1,574 @@
+[
+    {
+        "Refinement_recipe_id": 1,
+        "output_item_name": "Bronze Ingot",
+        "output_item_count": 5,
+        "disciplines": [
+            "Artificer",
+            "Weaponsmith",
+            "Scribe",
+            "Huntsman",
+            "Armorsmith"
+        ],
+        "min_rating": 0,
+        "tp_ingredients": [
+            {
+                "ing_name": "Copper Ore",
+                "count": 10
+            }
+        ],
+        "vendor_ingredients": [
+            {
+                "ing_name": "Lump of Tin",
+                "count": 1,
+                "price": 8
+            }
+        ]
+    },
+    {
+        "Refinement_recipe_id": 2,
+        "output_item_name": "Copper Ingot",
+        "output_item_count": 1,
+        "disciplines": [
+            "Scribe",
+            "Jeweler"
+        ],
+        "min_rating": 0,
+        "tp_ingredients": [
+            {
+                "ing_name": "Copper Ore",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 3,
+        "output_item_name": "Iron Ingot",
+        "output_item_count": 1,
+        "disciplines": [
+            "Scribe",
+            "Tailor",
+            "Artificer",
+            "Weaponsmith",
+            "Huntsman",
+            "Armorsmith",
+            "Leatherworker"
+        ],
+        "min_rating": 75,
+        "tp_ingredients": [
+            {
+                "ing_name": "Iron Ore",
+                "count": 3
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 4,
+        "output_item_name": "Silver Ingot",
+        "output_item_count": 1,
+        "disciplines": [
+            "Scribe",
+            "Jeweler"
+        ],
+        "min_rating": 75,
+        "tp_ingredients": [
+            {
+                "ing_name": "Silver Ore",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 5,
+        "output_item_name": "Gold Ingot",
+        "output_item_count": 1,
+        "disciplines": [
+            "Scribe",
+            "Jeweler"
+        ],
+        "min_rating": 150,
+        "tp_ingredients": [
+            {
+                "ing_name": "Gold Ore",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 6,
+        "output_item_name": "Steel Ingot",
+        "output_item_count": 1,
+        "disciplines": [
+            "Scribe",
+            "Tailor",
+            "Artificer",
+            "Weaponsmith",
+            "Huntsman",
+            "Armorsmith",
+            "Leatherworker"
+        ],
+        "min_rating": 150,
+        "tp_ingredients": [
+            {
+                "ing_name": "Iron Ore",
+                "count": 3
+            }
+        ],
+        "vendor_ingredients": [
+            {
+                "ing_name": "Lump of Coal",
+                "count": 1,
+                "price": 16
+            }
+        ]
+    },
+    {
+        "Refinement_recipe_id": 7,
+        "output_item_name": "Platinum Ingot",
+        "output_item_count": 1,
+        "disciplines": [
+            "Scribe",
+            "Jeweler"
+        ],
+        "min_rating": 225,
+        "tp_ingredients": [
+            {
+                "ing_name": "Platinum Ore",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 8,
+        "output_item_name": "Darksteel Ingot",
+        "output_item_count": 1,
+        "disciplines": [
+            "Scribe",
+            "Tailor",
+            "Artificer",
+            "Weaponsmith",
+            "Huntsman",
+            "Armorsmith",
+            "Leatherworker"
+        ],
+        "min_rating": 225,
+        "tp_ingredients": [
+            {
+                "ing_name": "Platinum Ore",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": [
+            {
+                "ing_name": "Lump of Primordium",
+                "count": 1,
+                "price": 48
+            }
+        ]
+    },
+    {
+        "Refinement_recipe_id": 9,
+        "output_item_name": "Orichalcum Ingot",
+        "output_item_count": 1,
+        "disciplines": [
+            "Scribe",
+            "Jeweler",
+            "Artificer",
+            "Weaponsmith",
+            "Huntsman",
+            "Armorsmith"
+        ],
+        "min_rating": 400,
+        "tp_ingredients": [
+            {
+                "ing_name": "Orichalcum Ore",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 10,
+        "output_item_name": "Bolt of Jute",
+        "output_item_count": 1,
+        "disciplines": [
+            "Armorsmith",
+            "Leatherworker",
+            "Scribe",
+            "Tailor"
+        ],
+        "min_rating": 0,
+        "tp_ingredients": [
+            {
+                "ing_name": "Jute Scrap",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 11,
+        "output_item_name": "Bolt of Wool",
+        "output_item_count": 1,
+        "disciplines": [
+            "Armorsmith",
+            "Leatherworker",
+            "Scribe",
+            "Tailor"
+        ],
+        "min_rating": 75,
+        "tp_ingredients": [
+            {
+                "ing_name": "Wool Scrap",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 12,
+        "output_item_name": "Bolt of Cotton",
+        "output_item_count": 1,
+        "disciplines": [
+            "Armorsmith",
+            "Leatherworker",
+            "Scribe",
+            "Tailor"
+        ],
+        "min_rating": 150,
+        "tp_ingredients": [
+            {
+                "ing_name": "Cotton Scrap",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 13,
+        "output_item_name": "Bolt of Linen",
+        "output_item_count": 1,
+        "disciplines": [
+            "Armorsmith",
+            "Leatherworker",
+            "Scribe",
+            "Tailor"
+        ],
+        "min_rating": 225,
+        "tp_ingredients": [
+            {
+                "ing_name": "Linen Scrap",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 14,
+        "output_item_name": "Bolt of Silk",
+        "output_item_count": 1,
+        "disciplines": [
+            "Armorsmith",
+            "Leatherworker",
+            "Scribe",
+            "Tailor"
+        ],
+        "min_rating": 300,
+        "tp_ingredients": [
+            {
+                "ing_name": "Silk Scrap",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 15,
+        "output_item_name": "Bolt of Gossamer",
+        "output_item_count": 1,
+        "disciplines": [
+            "Armorsmith",
+            "Leatherworker",
+            "Scribe",
+            "Tailor"
+        ],
+        "min_rating": 400,
+        "tp_ingredients": [
+            {
+                "ing_name": "Gossamer Scrap",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 16,
+        "output_item_name": "Stretched Rawhide Leather Square",
+        "output_item_count": 1,
+        "disciplines": [
+            "Armorsmith",
+            "Huntsman",
+            "Leatherworker",
+            "Scribe",
+            "Tailor"
+        ],
+        "min_rating": 0,
+        "tp_ingredients": [
+            {
+                "ing_name": "Rawhide Leather Section",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 17,
+        "output_item_name": "Cured Thin Leather Square",
+        "output_item_count": 1,
+        "disciplines": [
+            "Armorsmith",
+            "Artificer",
+            "Huntsman",
+            "Leatherworker",
+            "Scribe",
+            "Tailor",
+            "Weaponsmith"
+        ],
+        "min_rating": 75,
+        "tp_ingredients": [
+            {
+                "ing_name": "Thin Leather Section",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 18,
+        "output_item_name": "Cured Coarse Leather Square",
+        "output_item_count": 1,
+        "disciplines": [
+            "Armorsmith",
+            "Artificer",
+            "Huntsman",
+            "Leatherworker",
+            "Scribe",
+            "Tailor",
+            "Weaponsmith"
+        ],
+        "min_rating": 150,
+        "tp_ingredients": [
+            {
+                "ing_name": "Coarse Leather Section",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 19,
+        "output_item_name": "Cured Rugged Leather Square",
+        "output_item_count": 1,
+        "disciplines": [
+            "Armorsmith",
+            "Artificer",
+            "Huntsman",
+            "Leatherworker",
+            "Scribe",
+            "Tailor",
+            "Weaponsmith"
+        ],
+        "min_rating": 225,
+        "tp_ingredients": [
+            {
+                "ing_name": "Rugged Leather Section",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 20,
+        "output_item_name": "Cured Thick Leather Square",
+        "output_item_count": 1,
+        "disciplines": [
+            "Armorsmith",
+            "Artificer",
+            "Huntsman",
+            "Leatherworker",
+            "Scribe",
+            "Tailor",
+            "Weaponsmith"
+        ],
+        "min_rating": 300,
+        "tp_ingredients": [
+            {
+                "ing_name": "Thick Leather Section",
+                "count": 4
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 21,
+        "output_item_name": "Cured Hardened Leather Square",
+        "output_item_count": 1,
+        "disciplines": [
+            "Huntsman",
+            "Leatherworker",
+            "Scribe",
+            "Tailor",
+            "Armorsmith"
+        ],
+        "min_rating": 400,
+        "tp_ingredients": [
+            {
+                "ing_name": "Hardened Leather Section",
+                "count": 3
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 22,
+        "output_item_name": "Green Wood Plank",
+        "output_item_count": 1,
+        "disciplines": [
+            "Artificer",
+            "Huntsman",
+            "Scribe",
+            "Weaponsmith"
+        ],
+        "min_rating": 0,
+        "tp_ingredients": [
+            {
+                "ing_name": "Green Wood Log",
+                "count": 3
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 23,
+        "output_item_name": "Soft Wood Plank",
+        "output_item_count": 1,
+        "disciplines": [
+            "Artificer",
+            "Huntsman",
+            "Scribe",
+            "Weaponsmith"
+        ],
+        "min_rating": 75,
+        "tp_ingredients": [
+            {
+                "ing_name": "Soft Wood Log",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 24,
+        "output_item_name": "Seasoned Wood Plank",
+        "output_item_count": 1,
+        "disciplines": [
+            "Artificer",
+            "Huntsman",
+            "Scribe",
+            "Weaponsmith"
+        ],
+        "min_rating": 150,
+        "tp_ingredients": [
+            {
+                "ing_name": "Seasoned Wood Log",
+                "count": 3
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 25,
+        "output_item_name": "Hard Wood Plank",
+        "output_item_count": 1,
+        "disciplines": [
+            "Artificer",
+            "Huntsman",
+            "Scribe",
+            "Weaponsmith"
+        ],
+        "min_rating": 225,
+        "tp_ingredients": [
+            {
+                "ing_name": "Hard Wood Log",
+                "count": 3
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 26,
+        "output_item_name": "Elder Wood Plank",
+        "output_item_count": 1,
+        "disciplines": [
+            "Artificer",
+            "Huntsman",
+            "Scribe",
+            "Weaponsmith"
+        ],
+        "min_rating": 300,
+        "tp_ingredients": [
+            {
+                "ing_name": "Elder Wood Log",
+                "count": 3
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 27,
+        "output_item_name": "Ancient Wood Plank",
+        "output_item_count": 1,
+        "disciplines": [
+            "Artificer",
+            "Huntsman",
+            "Scribe",
+            "Weaponsmith"
+        ],
+        "min_rating": 400,
+        "tp_ingredients": [
+            {
+                "ing_name": "Ancient Wood Log",
+                "count": 3
+            }
+        ],
+        "vendor_ingredients": []
+    },
+    {
+        "Refinement_recipe_id": 28,
+        "output_item_name": "Mithril Ingot",
+        "output_item_count": 1,
+        "disciplines": [
+            "Armorsmith",
+            "Artificer",
+            "Huntsman",
+            "Jeweler",
+            "Leatherworker",
+            "Scribe",
+            "Tailor",
+            "Weaponsmith"
+        ],
+        "min_rating": 300,
+        "tp_ingredients": [
+            {
+                "ing_name": "Mithril Ore",
+                "count": 2
+            }
+        ],
+        "vendor_ingredients": []
+    }
+]
